@@ -77,7 +77,7 @@ def run_hrun(root_path,case_path):
     def testcase_step(step):
 
         def testcase_request_step(testcase_step_runner, step_testcase_obj, param):
-            logger.info(f"run testcase_step begin: {testcase_step_runner.get_config().name}, TestCase ID: {testcase_step_runner.case_id}")
+            logger.info(f"run testcase_step begin: {testcase_step_runner.get_config().name}")
             testcase_step_runner.start_time()
             for step in step_testcase_obj.teststeps:
                 if step.testcase:
@@ -86,7 +86,7 @@ def run_hrun(root_path,case_path):
                     request_step(testcase_step_runner,step,param)
                     testcase_step_summary.update(testcase_step_runner.get_summary())
             testcase_step_runner.total_time()
-            logger.info(f"run testcase_step end: {testcase_step_runner.get_config().name}, TestCase ID: {testcase_step_runner.case_id}")
+            logger.info(f"run testcase_step end: {testcase_step_runner.get_config().name}")
 
         step_testcase_obj = load_testcase_file(os.path.join(root_path,step.testcase))
         testcase_step_runner = HttpRunner()
@@ -100,7 +100,7 @@ def run_hrun(root_path,case_path):
             testcase_request_step(testcase_step_runner, step_testcase_obj, param)
    
     def run_step(param):
-        logger.info(f"Start to run testcase: {runner.get_config().name}, TestCase ID: {runner.case_id}")
+        logger.info(f"Start to run testcase: {runner.get_config().name}")
         runner.start_time()
         for step in testcase_obj.teststeps:
             if step.request:
@@ -108,7 +108,7 @@ def run_hrun(root_path,case_path):
             if step.testcase:
                 testcase_step(step)
         runner.total_time()
-        logger.info(f"Finished running testcase: {runner.get_config().name}, TestCase ID: {runner.case_id}")
+        logger.info(f"Finished running testcase: {runner.get_config().name}")
         
     runner.init_run(testcase_obj)
     if runner.get_config().parameters:
