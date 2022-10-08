@@ -19,7 +19,7 @@ async def run_test_start(testcase_infos: list):
         "message": "success",
         "results": []
     }
-    root_path = r"C:\Users\95439\hrp4demo" # 脚本工程路径
+    root_path = r"C:\Users\hrp4demo" # 脚本工程路径
     for testcase_info in testcase_infos:
         case_path = testcase_info.get("case_path") # json用例相对路径
         testcase_json_path = os.path.join(root_path,case_path) # json用例绝对路径
@@ -43,8 +43,7 @@ async def run_hrun(testcase_infos: list):
         "message": "success",
         "results": []
     }
-    # root_path = r"C:\Users\95439\hrp4demo" # 脚本工程路径
-    root_path = r"C:\Users\Zhao\demo"
+    root_path = r"C:\Users\hrp4demo" # 脚本工程路径
     for testcase_info in testcase_infos:
         case_path = testcase_info.get("case_path") # 获取json用例相对路径
         testcase_json_path = os.path.join(root_path,case_path) # json用例绝对路径
@@ -125,8 +124,7 @@ def run_hrun(root_path,case_path):
 
 if __name__ == "__main__":
     testcase_infos = [{"case_path":"testcases\\a.json","caseID":"case00001"}]
-    # root_path = r"C:\Users\95439\hrp4demo"
-    root_path = r"C:\Users\Zhao\demo"
+    root_path = r"C:\Users\hrp4demo"
     case_path = testcase_infos[0].get("case_path")
     run_hrun(root_path,case_path)
 
